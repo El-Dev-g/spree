@@ -451,3 +451,5 @@ require 'spree/core/preferences/runtime_configuration'
 
 require 'spree/core/webhooks'
 require 'spree/core/permission_configuration'
+require 'spree/core/pricing/context'
+require 'spree/core/pricing/resolver'
