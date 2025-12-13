@@ -364,6 +364,7 @@ module Spree
           Spree::Post,
           Spree::PostCategory,
           Spree::Price,
+          Spree::Product,
           Spree::Promotion,
           Spree::Refund,
           Spree::ReturnAuthorization,
