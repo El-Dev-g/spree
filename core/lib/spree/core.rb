@@ -317,6 +317,19 @@ module Spree
     Rails.application.config.spree.eventable_models = value
   end
 
+  # Event subscribers that handle lifecycle and custom events
+  # @example Adding a custom subscriber
+  #   Spree.subscribers << MyApp::OrderNotificationSubscriber
+  # @example Removing a built-in subscriber
+  #   Spree.subscribers.delete(Spree::ExportSubscriber)
+  def self.subscribers
+    Rails.application.config.spree.subscribers
+  end
+
+  def self.subscribers=(value)
+    Rails.application.config.spree.subscribers = value
+  end
+
   # Page Builder configuration accessor
   def self.page_builder
     @page_builder ||= PageBuilderConfig.new
