@@ -9,6 +9,7 @@ end
 
 describe Spree::Product, type: :model do
   it_behaves_like 'metadata'
+  it_behaves_like 'lifecycle events'
 
   let!(:store) { Spree::Store.default }
 
@@ -1442,37 +1443,4 @@ describe Spree::Product, type: :model do
     end
   end
 
-  describe 'lifecycle events' do
-    describe 'product.created' do
-      it 'publishes product.created event when product is created' do
-        product = build(:product, stores: [store])
-        expect(product).to receive(:publish_event).with('product.created')
-        allow(product).to receive(:publish_event).with(anything)
-
-        product.save!
-      end
-    end
-
-    describe 'product.updated' do
-      let!(:product) { create(:product, name: 'Original Name', stores: [store]) }
-
-      it 'publishes product.updated event when product is updated' do
-        expect(product).to receive(:publish_event).with('product.updated')
-        allow(product).to receive(:publish_event).with(anything)
-
-        product.update!(name: 'Updated Name')
-      end
-    end
-
-    describe 'product.destroyed' do
-      let!(:product) { create(:product, name: 'To Be Destroyed', stores: [store]) }
-
-      it 'publishes product.destroyed event when product is destroyed' do
-        expect(product).to receive(:publish_event).with('product.destroyed', kind_of(Hash))
-        allow(product).to receive(:publish_event).with(anything)
-
-        product.destroy!
-      end
-    end
-  end
 end
