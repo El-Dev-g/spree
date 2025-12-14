@@ -106,10 +106,10 @@ module Spree
       taxons: :default,
       stock_location_stock_items: :default,
       coupon_codes: :default,
-      webhooks: :default,
       themes: :default,
       addresses: :default,
-      gift_cards: :default
+      gift_cards: :default,
+      webhooks: :default
     )
   end
 
@@ -491,5 +491,4 @@ require 'spree/core/preferences/store'
 require 'spree/core/preferences/scoped_store'
 require 'spree/core/preferences/runtime_configuration'
 
-require 'spree/core/webhooks'
 require 'spree/core/permission_configuration'
