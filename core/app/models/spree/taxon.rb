@@ -20,9 +20,6 @@ module Spree
     include Spree::Metadata
     include Spree::MemoizedData
     include Spree::Linkable
-    if defined?(Spree::Webhooks::HasWebhooks)
-      include Spree::Webhooks::HasWebhooks
-    end
 
     MEMOIZED_METHODS = %w[cached_self_and_descendants_ids].freeze
 
